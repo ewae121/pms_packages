@@ -1,0 +1,33 @@
+{
+   "type": "config",
+   "name": "Configuration par défaut du PMS",
+   "desc": "Règlages  par défaut de la configuration du Procedure Management Systèmes.",
+   "children" :
+   [
+      {
+         "paramId": "defaultProc",
+         "type": "configParam",
+         "name": "Procédure par défaut",
+         "desc": "Sélectionner l'application à lancer par défaut. Les applications sont listées depuis le répertoire [${PMS_ROOT}/procedures/applications]",
+         "valueType": "list",
+         "values":"ls -ld procedures/applications/* | rev | cut -d ' ' -f 1 | rev | xargs -n 1 basename"
+      },
+      {
+         "paramId": "defaultView",
+         "type": "configParam",
+         "name": "Vue par défaut",
+         "desc": "Sélectionner le mode de détails à lancer par défaut. Les différents modes sont:<ul><li><STRONG>Overview: </STRONG>Vue pour diagnostiquer un serveur.</li><li><STRONG>Analyse: </STRONG>Vue pour un exploitant pour mieux comprendre le système.</li><li><STRONG>Conception: </STRONG>Vue pour les Administrateurs Systèmes pour retoucher les procédures.</li></ul>",
+         "valueType": "list",
+         "values":["Overview", "Analyse", "Conception"]
+      },
+      {
+         "paramId": "defaultNav",
+         "type": "configParam",
+         "name": "Navigation par défaut",
+         "desc": "Sélectionner le type de navigation à lancer par défaut. Les différents modes sont:<ul><li><STRONG>Nav: </STRONG>Navigation pour une compréhension plus intuitive.</li><li><STRONG>Full: </STRONG>Tous les éléments, cette navigation permet de mieux analyser les procédures.</li></ul>",
+         "valueType": "list",
+         "values":["Nav", "Full"]
+      }
+   ],
+   "btnLabel":"Valider les paramètres par défaut"
+}

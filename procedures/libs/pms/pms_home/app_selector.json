@@ -1,0 +1,19 @@
+{
+   "type": "config",
+   "name": "Sélection de l'application à lancer",
+   "desc": "Veuillez sélectionner l'application Procédure Management System à lancer.",
+   "children" :
+   [
+      {
+         "paramId": "launchProc",
+         "type": "configParam",
+         "name": "Procédure à lancer",
+         "desc": "Sélectionner l'application à lancer. Les applications sont listées depuis le répertoire [${PMS_ROOT}/procedures/applications]",
+         "valueType": "list",
+         "method":"loadProc",
+         "values":"ls -ld procedures/applications/* | rev | cut -d ' ' -f 1 | rev | xargs -n 1 basename"
+      }
+   ],
+   "btnLabel":"Lancer la procédure"
+}
+
