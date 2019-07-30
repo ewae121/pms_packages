@@ -1,0 +1,118 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "format": "[%(asctime)s] p%(process)s {%(pathname)s:%(lineno)d} %(levelname)s - %(message)s'",
+				"datefmt": "%m-%d %H:%M:%S"
+        }
+    },
+
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "simple",
+            "stream": "ext://sys.stdout"
+        }
+    },
+
+    "loggers": {
+        "__main__": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_http_server": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_ws_server": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_server": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_scheduler": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_server_user": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_server_config": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_server_version": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_server_time": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_elements_mgr": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_element": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_element_proc": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_element_step": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_element_config": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_element_config_param": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_element_applications_mgr": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_element_application": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_utils_json": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        },
+        "app.pms_utils_command": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        }
+    }
+}
+
