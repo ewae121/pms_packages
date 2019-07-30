@@ -1,0 +1,24 @@
+{
+   "type": "procedure",
+   "menuName": "Identification",
+   "name": "Identification du système",
+   "desc": "Informations générales du système.",
+   "elts" : 
+   [
+      {
+         "type": "cmd",
+         "name": "Numéro de série",
+         "desc": "Affiche le numéro de série du serveur.",
+         "cmd": "dmidecode -s system-serial-number",
+         "btnLabel":"Rafraîchir"
+      },
+      {
+         "type": "cmd",
+         "name": "Nom du serveur",
+         "desc": "Affiche le nom du serveur.",
+         "cmd":"hostname",
+         "btnLabel":"Rafraîchir"
+      }
+   ],
+   "btnLabel":"Rafraîchir"
+}

@@ -1,0 +1,172 @@
+{
+   "type": "procedure",
+   "name": "Informations du système",
+   "desc": "Informations générales du systèmes.",
+   "autoExec": true,
+   "elts" : 
+   [
+      {
+         "filename" : "identification.json"
+      },
+      {
+         "type": "procedure",
+         "menuName": "Configuration",
+         "name": "Configuration du système",
+         "desc": "Informations sur la configuration du système.",
+         "elts" :
+         [
+            {
+               "type": "cmd",
+               "name": "Système installé",
+               "desc": "Affiche les caractéristique de la machine installée.",
+               "cmd":"uname -a",
+               "btnLabel":"Rafraîchir"
+            },
+            {
+               "type": "cmd",
+               "name": "Information sur les locales",
+               "desc": "Affiche les locales du système installé.",
+               "cmd": "locale",
+               "btnLabel":"Rafraîchir"
+            },
+            {
+               "type": "cmd",
+               "name": "Test async",
+               "desc": "Test que l'asynchrone fonctionne.",
+               "cmd": "sleep 6 && echo Done",
+               "async": true,
+               "btnLabel":"test"
+            },
+            {
+               "type": "cmd",
+               "name": "Test async repeat",
+               "desc": "Test que l'asynchrone fonctionne avec un sleep de 10 et un replay de 10.",
+               "cmd": "sleep 10 && echo Done",
+               "delay": 9,
+               "async": true,
+               "btnLabel":"test"
+            }
+         ],
+         "btnLabel":"Rafraîchir"
+      },
+      {
+         "type": "procedure",
+         "menuName": "Statistiques",
+         "name": "Statistiques du système",
+         "desc": "Informations sur la mémoire, la performance et le temps du système.",
+         "elts" :
+         [
+            {
+               "type": "procedure",
+               "menuName": "Espace disque",
+               "name": "Information sur l'espace disque",
+               "desc": "Informations sur la quantité de mémoire restante du système.",
+               "elts" :
+               [
+                  {
+                     "type": "cmd",
+                     "name": "Espace disque disponible",
+                     "desc": "Les lignes importantes sont les lignes faisant figuré / et /home qui représente le disque dur.",
+                     "cmd": "df -h --total",
+                     "delay": "slow",
+                     "btnLabel":"Rafraîchir"
+                  }
+               ]
+            },
+            {
+               "type": "cmd",
+               "name": "Temps de fonctionnement",
+               "desc": "Affiche le temps écoulé depuis le dernier redémarrage, ainsi que la charge moyenne du serveur (uptime).",
+               "cmd": "uptime",
+               "delay": "fast",
+               "btnLabel":"Rafraîchir"
+            },
+            {
+               "type": "cmd",
+               "name": "Utilisation du CPU",
+               "desc": "Affiche les taux d'utilisation du CPU.",
+               "cmd": "cat /proc/loadavg",
+               "delay": "fast",
+               "btnLabel":"Rafraîchir"
+            },
+            {
+               "type": "cmd",
+               "name": "Utilisation de la mémoire",
+               "desc": "Affiche les informations sur l'utilisation de la mémoire vive.",
+               "cmd": "free -h",
+               "delay": "slow",
+               "btnLabel":"Rafraîchir"
+            }
+         ],
+         "btnLabel":"Rafraîchir"
+      },
+      {
+         "type": "procedure",
+         "menuName": "Internet",
+         "name": "Connexion Internet",
+         "desc": "Pour tester la connexion à Internet, il faut:<ul><li>Regarder si une adresse IP publique est accessible.</li><li>Tester la résolution des noms(DNS) qui sont ceux que l'on compose en général pour accéder aux sites.</li></ul>",
+         "delay":"slow",
+         "elts" :
+         [
+            {
+               "type": "cmd",
+               "name": "Connexion à Internet",
+               "desc": "Test l'accés au serveur DNS de Google.",
+               "cmd": "wget --spider --connect-timeout=1 http://www.google.com",
+               "btnLabel":"Rafraîchir"
+            }
+         ],
+         "btnLabel":"Rafraîchir"
+      },
+      {
+         "type": "procedure",
+         "menuName": "Réseau",
+         "name": "Configuration du réseau",
+         "desc": "Affiche le réseau configuré sur le système.",
+         "elts" :
+         [
+            {
+               "type": "cmd",
+               "name": "Interfaces réseaux configurées",
+               "desc": "Affiche les informations sur les interfaces réseaux configurées sur le système.",
+               "cmd": "ip addr",
+               "btnLabel":"Rafraîchir"
+            },
+            {
+               "type": "cmd",
+               "name": "Hôtes distants connus",
+               "desc": "Affiche la liste des machines distantes connues par le système. Vous pouvez utiliser la commande: <ul><li>ssh NOM_MACHINE</li></ul>",
+               "cmd": "cat /etc/hosts",
+               "btnLabel":"Rafraîchir"
+            }
+         ],
+         "btnLabel":"Rafraîchir"
+      },
+      {
+         "type": "procedure",
+         "menuName": "Matériel",
+         "name": "Matériel détecté.",
+         "desc": "Affiche le matériel détecté par le système.",
+         "elts" :
+         [
+            {
+               "type": "cmd",
+               "name": "Processeurs",
+               "desc": "Affiche la liste des processeurs présents sur le serveur.",
+               "cmd": "cat /proc/cpuinfo",
+               "btnLabel":"Rafraîchir"
+            },
+            {
+               "type": "cmd",
+               "name": "Matériels PCI détectés",
+               "desc": "Affiche la liste des matériels PCI installés sur le serveur.",
+               "cmd": "cut -f1,2,18 /proc/bus/pci/devices",
+               "btnLabel":"Rafraîchir"
+            }
+         ],
+         "btnLabel":"Rafraîchir"
+      }
+   ],
+   "btnLabel":"Rafraîchir"
+}
+

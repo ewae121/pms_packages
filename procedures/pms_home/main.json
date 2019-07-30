@@ -1,0 +1,25 @@
+{
+   "type": "procedure",
+   "name": "Accueil",
+   "menuName": "Accueil",
+   "desc": "Bienvenu dans le Procedure Management System. Veuillez sélectionner l'application à lancer. <BR/>Vous êtes actuellement bien connecté au server.",
+   "elts" :
+   [
+      {
+         "filename" : "pms/pms_home/app_selector.json"
+      },
+      {
+         "type": "procedure",
+         "name": "Administration du PMS",
+         "menuName": "Admin PMS",
+         "desc": "Cette procédure permet de configurer le Procedure Management System. Vous pouvez sélectionner l'application à lancer ainsi que le comportement par défaut lors de votre connexion.",
+         "elts" :
+         [
+            {
+               "filename" : "pms/pms_admin/app_defaults.json"
+            }
+         ]
+      }
+   ]
+}
+
