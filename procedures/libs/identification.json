@@ -1,0 +1,28 @@
+{
+   "type": "procedure",
+   "menuName": "Identification",
+   "name": "Identification du système",
+   "desc": "Informations générales du système.",
+   "children":
+   [
+      {
+         "type": "step",
+         "name": "Numéro de série",
+         "desc": "Affiche le numéro de série du serveur.",
+         "check": {
+            "cmd": "dmidecode -s system-serial-number",
+            "btnLabel":"Rafraîchir"
+         }
+      },
+      {
+         "type": "step",
+         "name": "Nom du serveur",
+         "desc": "Affiche le nom du serveur.",
+         "check": {
+            "cmd": "hostname",
+            "btnLabel":"Rafraîchir"
+         }
+      }
+   ],
+   "btnLabel":"Rafraîchir"
+}

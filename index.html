@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<title>Procedure Management System (Not Connected)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<style>
+   body {margin: 0;padding:0;}
+</style>
+
+<link rel="stylesheet" href="contrib/w3.css">
+<!--link rel="stylesheet" href="/home/ewae/Dev/newStyle/contrib/font-awesome-4.7.0/css/font-awesome.css"-->
+<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+<link rel="stylesheet" href="css/elt-menu.css">
+
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script-->
+<script src="contrib/jquery-1.9.1.js"></script>
+
+<!-- Utils -->
+<script src="js/debug.js"></script>
+<script src="js/utils_html.js"></script>
+
+<!-- Communication -->
+<script src="js/web_socket.js"></script>
+<script src="js/web_socket_pms.js"></script>
+
+<!--script src="js/debug_server.js"></script>
+<script src="js/debug_client.js"></script-->
+
+<script src="js/elt.js"></script>
+<script src="js/elt_step.js"></script>
+<script src="js/elt_manager.js"></script>
+
+<!-- top menu -->
+<script src="js/top_menu.js"></script>
+
+<script src="js/page_config.js"></script>
+<script src="js/page_nav.js"></script>
+<script src="js/page_content.js"></script>
+<script src="js/page.js"></script>
+
+<script>
+   "use strict";
+   var DEBUG_APP_MODULE = 'APPLICATION';
+   var DEBUG_APP_LEVEL = DEBUG_INFO;
+
+   function debugApp(msg, level = DEBUG_INFO){
+      debug(DEBUG_APP_MODULE, DEBUG_APP_LEVEL, level, msg);
+   }
+
+   var HTML_CONTENT_ROOT_ID = 'pms';
+   var CLIENT_VERSION = '0.0.1';
+
+   // A $( document ).ready() block.
+   $( document ).ready(function() {
+      debugApp("Pms client is ready!");
+
+      debugApp("Initialize the top menu");
+      topMenu();
+      debugApp("Initialize the application page");
+      page();
+
+      setTimeout(function(){wsConnect();}, 1000);
+
+      //debugServer(true);
+      //debugClient(true);
+   });
+</script>
+
+<body>
+   <div id="pms">
+   </div>
+</body>
+
+</html>
+
